@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>basic</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1,user-scalable=no,minimal-ui">
+    <link rel="shortcut icon" href="https://www.baidu.com/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="main.css">
+    <link rel="manifest" href="./manifest.json">
+</head>
+<body>
+<div class="content">
+    <div class="text">Hello PWA!</div>
+    <div class="button" id="btn">点击显示横幅</div>
+</div>
+<script>
+	// 检测浏览器是否支持SW
+	if(navigator.serviceWorker != null){
+		navigator.serviceWorker.register('sw.js')
+			.then(function(registartion){
+				console.log('支持sw:',registartion.scope)
+			})
+	}
+</script>
+<script>
+	/*var dfdPrompt = null;
+	var button = document.getElementById('btn');
+	window.addEventListener('beforeinstallprompt', function (e) {
+		// 存储事件
+		dfdPrompt = e;
+		// 显示按钮
+		button.style.display = 'block';
+		// 阻止默认事件
+		e.preventDefault();
+		return false;
+	});
+	button.addEventListener('click', function (e) {
+		if (dfdPrompt == null) {
+			return;
+		}
+		// 通过按钮点击事件触发横幅显示
+		dfdPrompt.prompt();
+		// 监控用户的安装行为
+		dfdPrompt.userChoice.then(function (choiceResult) {
+			alert(choiceResult.outcome);
+		});
+		// 隐藏按钮
+		button.style.display = 'none';
+		dfdPrompt = null;
+	});*/
+</script>
+</body>
+</html>
